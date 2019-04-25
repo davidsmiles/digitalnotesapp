@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/main_toolbar"
+        android:id="@+id/toolbar_deet"/>
+
+    <TextView
+        android:id="@+id/category_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="uncategorized"
+        android:layout_below="@id/toolbar_deet"
+        android:padding="3dp"
+        android:paddingStart="@dimen/fifteen"
+        android:paddingEnd="@dimen/fifteen"/>
+
+    <TextView
+        android:id="@+id/time_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="11:00:00 pm"
+        android:textSize="12sp"
+        android:layout_below="@id/toolbar_deet"
+        android:layout_toEndOf="@id/category_view"
+        android:layout_alignBaseline="@id/category_view"/>
+
+    <TextView
+        android:id="@+id/note_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="David is a building a notepad app that hshshshshshsj fhhf fhhf hfhf"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:scrollbars="vertical"
+        android:layout_below="@id/category_view"
+        android:paddingTop="2dp"
+        android:paddingBottom="@dimen/five"
+        android:paddingStart="@dimen/fifteen"
+        android:paddingEnd="@dimen/fifteen"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/edit_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/twentyfive"/>
+
+</RelativeLayout>

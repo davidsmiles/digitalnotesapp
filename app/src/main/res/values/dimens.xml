@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="frontpage_padd">50sp</dimen>
+    <dimen name="five">5sp</dimen>
+    <dimen name="ten">10sp</dimen>
+    <dimen name="fifteen">15sp</dimen>
+    <dimen name="twenty">20sp</dimen>
+    <dimen name="twentyfive">25sp</dimen>
+    <dimen name="thirty">30sp</dimen>
+    <dimen name="thirtyfive">35sp</dimen>
+    <dimen name="forty">40sp</dimen>
+    <dimen name="fortyfive">45sp</dimen>
+    <dimen name="fifty">50sp</dimen>
+    <dimen name="sixteen">16sp</dimen>
+    <dimen name="two">2dp</dimen>
+    <dimen name="thirteen">13sp</dimen>
+</resources>

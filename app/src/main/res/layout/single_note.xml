@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/deepgreen">
+
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_share_across"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/share"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/delete"
+            android:textColor="@color/white"
+            android:layout_marginStart="2dp"
+            android:textSize="13sp"
+        />
+    </RelativeLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/foreground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="1dp"
+        android:layout_marginBottom="1dp">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="@dimen/fifteen"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingTop="@dimen/five"
+                android:paddingBottom="@dimen/five">
+
+            <TextView
+                    android:id="@+id/note_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="shshshhgshghgsghsghshshshshhgshghgsghs"
+                    android:layout_marginEnd="@dimen/thirty"
+                    android:singleLine="true"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black"/>
+
+            <TextView
+                    android:id="@+id/note_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hdhdhdh"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/thirteen"
+                    android:layout_below="@id/note_text"
+                    android:paddingTop="@dimen/two"
+                    android:layout_alignStart="@id/note_text"/>
+
+            <TextView
+                    android:id="@+id/note_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:text="73737"
+                    android:layout_below="@id/note_text"
+                    android:layout_toEndOf="@id/note_category"
+                    android:layout_alignBaseline="@id/note_category"
+                    android:layout_marginStart="@dimen/thirty"/>
+
+            <ImageView
+                    android:id="@+id/fav_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_star"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</FrameLayout>

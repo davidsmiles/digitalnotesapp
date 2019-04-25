@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:id="@+id/coordinator"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+
+     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:title="@string/notes"
+            app:titleTextColor="@color/white"
+            app:titleTextAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:background="@color/colorPrimary"/>
+
+        <com.miguelcatalan.materialsearchview.MaterialSearchView
+            android:id="@+id/materialSearchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:searchVoiceIcon="@drawable/ic_voice">
+        </com.miguelcatalan.materialsearchview.MaterialSearchView>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/notes_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"/>
+     </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/note_fab_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/twentyfive"/>
+</android.support.design.widget.CoordinatorLayout>

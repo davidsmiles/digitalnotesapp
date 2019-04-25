@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">TakeNotes</string>
+    <string name="notes">Notes</string>
+    <string name="type_note">Type note</string>
+
+    <string name="sortby">Sort by</string>
+    <string name="sort_time">Time</string>
+    <string name="sort_category">Category</string>
+    <string name="delete_all">Delete all</string>
+
+    <string name="submit">Submit</string>
+    <string name="newnote">New Note</string>
+    <string name="reading">Reading</string>
+    <string name="delete">Delete</string>
+    <string name="search">Search</string>
+
+    <string name="note_deleted">Note item deleted</string>
+    <string name="undo">UNDO</string>
+    <string name="share">Share</string>
+    <string name="share_via">Share this note via</string>
+    <string name="favourite">Favourite</string>
+    <string name="note_added">Note item marked as favourite.</string>
+    <string name="note_removed">Note item unmarked as favorite.</string>
+
+    <!-- Database -->
+    <string name="table_name">notes_db</string>
+    <string name="note_text">NOTE_TEXT</string>
+    <string name="category">CATEGORY</string>
+    <string name="time">TIME</string>
+    <string name="favorite">FAVORITE</string>
+    <string name="note_saved">Note saved.</string>
+    <string name="note_modified">Note modified.</string>
+    <string name="modify_note">Modify Note</string>
+    <string name="all_notes">All notes</string>
+    <string name="say_something">Say something</string>
+    <string name="search_note">Search note...</string>
+
+    <string-array name="categories">
+        <item>Uncategorized</item>
+        <item>Work</item>
+        <item>Personal</item>
+        <item>Family affair</item>
+        <item>Study</item>
+    </string-array>
+</resources>

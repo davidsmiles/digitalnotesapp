@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/main_toolbar"
+        android:id="@+id/toolbar"/>
+
+    <EditText
+        android:id="@+id/note_msg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:hint="@string/type_note"
+        android:gravity="top"
+        android:paddingTop="@dimen/five"
+        android:paddingBottom="@dimen/five"
+        android:paddingStart="@dimen/fifteen"
+        android:paddingEnd="@dimen/fifteen"
+        android:layout_above="@id/categories"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/note_speech"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_voice"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@id/categories"
+        android:layout_margin="@dimen/twentyfive"
+        android:layout_marginBottom="105dp"/>
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/categories"
+        android:layout_width="200dp"
+        android:layout_height="?attr/actionBarSize"
+        android:entries="@array/categories"
+        android:layout_alignParentBottom="true">
+    </android.support.v7.widget.AppCompatSpinner>
+</RelativeLayout>
