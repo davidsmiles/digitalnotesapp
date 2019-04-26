@@ -12,6 +12,7 @@ import android.support.v7.widget.*
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.miguelcatalan.materialsearchview.MaterialSearchView
 import kotlinx.android.synthetic.main.activity_notes.*
 import org.jetbrains.anko.alert
@@ -24,6 +25,11 @@ class NotesActivity : AppCompatActivity(), NoteItemTouchListener {
         var favorite_clicked = false
         var default_order = "TIME DESC"
     }
+
+    /** var [current_view_page] checks what page user is on
+     *  1 to represent All Notes page
+     *  2 to represent Favorite Notes Page*/
+    var current_view_page = 1
 
     lateinit var textToSpeech: TextToSpeech
     val notes_list = ArrayList<Notes>()
@@ -124,8 +130,21 @@ class NotesActivity : AppCompatActivity(), NoteItemTouchListener {
 
         noteAdapter = NotesAdapter(this, notes_list as ArrayList<Notes>)
         notes_recycler.adapter = noteAdapter
+
+        viewIfEmpty()
     }
 
+    /** If results returned from the database is empty, then this code takes effect
+     *  and changes the view to display the empty page view*/
+    fun viewIfEmpty(){
+        empty_view.apply {
+            visibility = if(notes_list.size == 0) View.VISIBLE else View.GONE
+            empty_view_text.text = if(current_view_page == 1)
+                String.format(Locale.getDefault(), "Ooops, you do not have any notes saved up. To write a note, please click on the button below")
+            else
+                String.format(Locale.getDefault(), "You have no notes marked as favorite.")
+        }
+    }
 
     /**
      *  Method call to function [RetrieveNotes]
@@ -146,7 +165,8 @@ class NotesActivity : AppCompatActivity(), NoteItemTouchListener {
      *  and updates the Adapter
      */
     class RetrieveNotes(val ctx: NotesActivity): AsyncTask<Void, Void, ArrayList<Notes>>(){
-        val notes_list = ArrayList<Notes>()
+
+        val _notes_list = ArrayList<Notes>()
 
         override fun doInBackground(vararg params: Void?): ArrayList<Notes> {
             val notesDb = NotesDb(ctx)
@@ -161,20 +181,24 @@ class NotesActivity : AppCompatActivity(), NoteItemTouchListener {
                 val cate = cursor.getString(cursor.getColumnIndex("CATEGORY"))
                 val time = cursor.getLong(cursor.getColumnIndex("TIME"))
                 val favryt = cursor.getString(cursor.getColumnIndex("FAVORITE"))
-                notes_list.add(Notes(index, text, cate, time, favryt))
+                _notes_list.add(Notes(index, text, cate, time, favryt))
             }
 
             cursor.close()
             rdb.close()
-            return notes_list
+            return _notes_list
         }
 
         override fun onPostExecute(result: ArrayList<Notes>?) {
             super.onPostExecute(result)
             ctx.apply {
+                current_view_page = 1
+
                 notes_list.clear()
                 notes_list.addAll(result!!)
                 noteAdapter.notifyDataSetChanged()
+
+                viewIfEmpty()
             }
         }
     }
@@ -210,9 +234,13 @@ class NotesActivity : AppCompatActivity(), NoteItemTouchListener {
         override fun onPostExecute(result: ArrayList<Notes>?) {
             super.onPostExecute(result)
             ctx.apply {
+                current_view_page = 2
+
                 notes_list.clear()
                 notes_list.addAll(result!!)
                 noteAdapter.notifyDataSetChanged()
+
+                viewIfEmpty()
             }
         }
     }
