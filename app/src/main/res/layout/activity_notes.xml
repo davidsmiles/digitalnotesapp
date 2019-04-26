@@ -26,11 +26,41 @@
             app:searchVoiceIcon="@drawable/ic_voice">
         </com.miguelcatalan.materialsearchview.MaterialSearchView>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/notes_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/toolbar"/>
+         <android.support.v7.widget.RecyclerView
+             android:id="@+id/notes_recycler"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_below="@id/toolbar"
+         />
+
+         <RelativeLayout
+             android:id="@+id/empty_view"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_below="@id/toolbar"
+             android:gravity="center"
+             android:visibility="gone">
+
+             <ImageView
+                 android:id="@+id/empty_view_image"
+                 android:layout_width="120sp"
+                 android:layout_height="120sp"
+                 android:src="@drawable/ic_android"
+                 android:contentDescription="@string/note_empty"
+                 android:layout_centerHorizontal="true"/>
+
+             <TextView
+                 android:id="@+id/empty_view_text"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                 android:textColor="@color/black"
+                 android:padding="@dimen/twenty"
+                 android:textAlignment="center"
+                 android:layout_marginTop="@dimen/ten"
+                 android:layout_centerHorizontal="true"
+                 android:layout_below="@id/empty_view_image"/>
+         </RelativeLayout>
      </RelativeLayout>
 
     <android.support.design.widget.FloatingActionButton
@@ -39,5 +69,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_edit"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/twentyfive"/>
+        android:layout_marginBottom="@dimen/twentyfive"
+        android:layout_marginTop="@dimen/twentyfive"
+        android:layout_marginStart="@dimen/twentyfive"
+        android:layout_marginEnd="@dimen/forty"/>
 </android.support.design.widget.CoordinatorLayout>

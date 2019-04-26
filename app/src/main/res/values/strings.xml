@@ -33,7 +33,8 @@
     <string name="modify_note">Modify Note</string>
     <string name="all_notes">All notes</string>
     <string name="say_something">Say something</string>
-    <string name="search_note">Search note...</string>
+    <string name="search_note">Search note…</string>
+    <string name="note_empty">You have no notes here.</string>
 
     <string-array name="categories">
         <item>Uncategorized</item>
