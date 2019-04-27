@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.speech.RecognizerIntent
-import android.speech.tts.TextToSpeech
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.*
@@ -31,7 +30,6 @@ class NotesActivity : AppCompatActivity(), NoteItemTouchListener {
      *  2 to represent Favorite Notes Page*/
     var current_view_page = 1
 
-    lateinit var textToSpeech: TextToSpeech
     val notes_list = ArrayList<Notes>()
     lateinit var noteAdapter: NotesAdapter
 
@@ -44,8 +42,6 @@ class NotesActivity : AppCompatActivity(), NoteItemTouchListener {
 
         retrieveNotes()
         setViews()
-
-        initTTS()
     }
 
     private fun setViews(){
@@ -97,15 +93,6 @@ class NotesActivity : AppCompatActivity(), NoteItemTouchListener {
             val intent = Intent(this@NotesActivity, AddNote::class.java)
             startActivity(intent)
         }
-    }
-
-    /** Initialize the TextToSpeech API */
-    private fun initTTS(){
-        textToSpeech = TextToSpeech(this){TextToSpeech.OnInitListener {
-            if(it != TextToSpeech.ERROR){
-                textToSpeech.language = Locale.getDefault()
-            }
-        }}
     }
 
     /**

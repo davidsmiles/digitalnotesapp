@@ -35,6 +35,7 @@
     <string name="say_something">Say something</string>
     <string name="search_note">Search note…</string>
     <string name="note_empty">You have no notes here.</string>
+    <string name="play">Play audio note</string>
 
     <string-array name="categories">
         <item>Uncategorized</item>
