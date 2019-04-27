@@ -2,9 +2,10 @@ package com.app.takenotes
 
 import android.content.Intent
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
+import android.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.text.method.MovementMethod
 import android.text.method.ScrollingMovementMethod
 import android.view.Menu
 import android.view.MenuItem
@@ -19,6 +20,8 @@ class NoteDetail : AppCompatActivity() {
         lateinit var Note: Notes
     }
 
+    lateinit var textToSpeech: TextToSpeech
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note_detail)
@@ -29,7 +32,18 @@ class NoteDetail : AppCompatActivity() {
             setHomeAsUpIndicator(R.drawable.ic_nav_before)
         }
 
+        initTTS()
         setpageUp()
+    }
+
+    /** Initialize the TextToSpeech API */
+    private fun initTTS(){
+        textToSpeech = TextToSpeech(this){
+            TextToSpeech.OnInitListener {
+                if(it != TextToSpeech.ERROR){
+                    textToSpeech.language = Locale.getDefault()
+                }
+            }}
     }
 
     private fun setpageUp(){
@@ -63,14 +77,21 @@ class NoteDetail : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_delete, menu)
+        menuInflater.inflate(R.menu.menu_detail, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when(item!!.itemId){
+            R.id.play_audio -> {
+                textToSpeech.apply {
+                    speak(Note.text, TextToSpeech.QUEUE_FLUSH, null)
+                }
+
+                true
+            }
             R.id.delete -> {
-                alert("The note will be deleted.", "Delete"){
+                alert(String.format(Locale.getDefault(), "The note will be deleted."), "Delete"){
                     positiveButton("OK"){
                         val time = Note.time.toString()
                         NotesDb(this@NoteDetail).writableDatabase
@@ -88,4 +109,13 @@ class NoteDetail : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        initTTS()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        textToSpeech.shutdown()
+    }
 }
