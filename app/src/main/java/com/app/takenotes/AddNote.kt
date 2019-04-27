@@ -60,6 +60,7 @@ class AddNote : AppCompatActivity() {
                 putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
                 putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.say_something))
                 putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+                putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, true)
                 startActivityForResult(this, SPEECH_RECOGNIZER)
             }
         }
