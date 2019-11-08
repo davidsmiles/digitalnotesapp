@@ -249,6 +249,7 @@ class NotesActivity : AppCompatActivity(), NoteItemTouchListener {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item!!.itemId){
+            /*
             R.id.favourite -> {
                 favorite_clicked = !favorite_clicked
                 if(favorite_clicked){
@@ -263,6 +264,7 @@ class NotesActivity : AppCompatActivity(), NoteItemTouchListener {
                 }
                 return true
             }
+             */
             R.id.sort_time -> {
                 getSharedPreferences("notes", Context.MODE_PRIVATE).edit().run{
                     if(getOrder()!!.contentEquals(default_order)){

@@ -4,10 +4,12 @@
           android:title="@string/search"
           android:icon="@drawable/ic_search"
           app:showAsAction="always"/>
-    <item android:id="@+id/favourite"
-          android:title="@string/favourite"
-          android:icon="@drawable/ic_favorite"
-          app:showAsAction="always"/>
+
+<!--    <item android:id="@+id/favourite"-->
+<!--          android:title="@string/favourite"-->
+<!--          android:icon="@drawable/ic_favorite"-->
+<!--          app:showAsAction="always"/>-->
+
     <item android:title="@string/sortby">
         <menu>
             <item android:id="@+id/sort_time"
