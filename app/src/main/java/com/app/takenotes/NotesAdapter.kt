@@ -100,4 +100,3 @@ class NotesAdapter(val ctx: NotesActivity, val notesArrays: ArrayList<Notes>): R
     }
 
 }
-
